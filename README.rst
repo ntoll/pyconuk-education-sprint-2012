@@ -5,10 +5,10 @@ What do you think students should learn?
 ++++++++++++++++++++++++++++++++++++++++
 
 * How to think like a computer scientist.
-** "Sir" isn't always right or know the answer.
-** Problem solving.
-** CS Unplugged.
-** Cultural shift from Teachers PoV.
+ * "Sir" isn't always right or know the answer.
+ * Problem solving.
+ * CS Unplugged.
+ * Cultural shift from Teachers PoV.
 * Teamwork - programming is not just a solo activity.
 * Programming is a creative process that is fun.
 * Patience.
