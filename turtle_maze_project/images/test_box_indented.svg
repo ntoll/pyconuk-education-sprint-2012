@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by diasvg.py -->
+<svg width="21.600cm" height="23.550cm" viewBox="4.255 3.685 25.855 27.235"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="4.305" y="3.735" width="21.500" height="23.450" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="4.305" y="3.735" width="21.500" height="23.450" fill="none" stroke="#000000" stroke-width="0.100" />
+<polyline fill="none" stroke="#0000FF" stroke-width="0.100"  points="15.905,24.935 15.905,19.960 15.900,19.960 15.900,14.900 14.150,14.900 14.150,19.960 7.455,19.960 7.455,8.935 16.055,8.935 16.055,6.572 "/>
+<polygon fill="#0000FF" stroke="none" stroke-width="0.100" points="16.055,6.197 16.305,6.697 16.055,6.572 15.805,6.697 "/>
+<polygon fill="none" stroke="#0000FF" stroke-width="0.100"  points="16.055,6.197 16.305,6.697 16.055,6.572 15.805,6.697 "/>
+<text x="15.455" y="11.385"  fill="#000000" text-anchor="middle" font-size="1.06" font-family="sans" font-style="normal" font-weight="400">
+Target object -</text>
+<text x="15.455" y="12.443"  fill="#000000" text-anchor="middle" font-size="1.06" font-family="sans" font-style="normal" font-weight="400">
+provided by the</text>
+<text x="15.455" y="13.502"  fill="#000000" text-anchor="middle" font-size="1.06" font-family="sans" font-style="normal" font-weight="400">
+teacher</text>
+<text x="11.405" y="6.535"  fill="#000000" text-anchor="middle" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+Path of turtle </text>
+<text x="11.405" y="7.335"  fill="#000000" text-anchor="middle" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+avoiding the </text>
+<text x="11.405" y="8.135"  fill="#000000" text-anchor="middle" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+target object</text>
+<polyline fill="none" stroke="#000099" stroke-width="0.200"  points="9.650,15.250 9.650,10.150 21.550,10.150 21.550,19.000 18.100,19.000 18.100,14.000 13.500,14.000 13.500,19.000 9.650,19.000 9.650,15.400 "/>
+</svg>
