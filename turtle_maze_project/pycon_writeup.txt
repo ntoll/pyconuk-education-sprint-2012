@@ -1,0 +1,161 @@
+===========================================
+Using Maze Following as a Teaching Project
+===========================================
+
+PyConUK 2012 had a teaching sprint that brought together teachers and
+geeks for mutual enlightenment. As part of that sprint we split into
+groups and attempted to devise teaching plans using different
+computing ideas. This is the result from one such group.
+
+The goal of the project was to build on students' knowledge of turtle
+geometry (learnt, perhaps from Logo) and to use Python's turtle
+graphics to give a turtle the ability to navigate a maze. This means
+giving the turtle the ability to tell where the maze is, as well as
+working out some algorithm for navigation. Thinking about all the
+elements needed to demonstrate success lead to a number of assumptions
+that allow us to decide what the student has to do and what is already
+given. We also needed to consider how the project might be made more
+interesting.
+
+As it stands, we did not get as far as a detailed lesson plan. Nor did
+we consider teaching issues such as diversity. The conversation did,
+however, lead to ideas for ways of providing the technical support for
+the assumptions hinted at above.
+
+The Elements of a Maze Navigation System
+========================================
+
+These are the things that need to be thought about when dealing with
+mazes. Some of these will be provided, and some will be developed by
+the students.
+
+The Maze
+--------
+
+* Maze Definition - how does the user, student or teacher, define the
+  shape that is to be the maze?
+
+  At some levels this is a study in its own right. The geek side of
+  the table mentioned automatic maze generation tools, but our overall
+  level of knowledge of such things meant we could not sensibly
+  evaluate such things for classroom use. We had thought that it might
+  be good for students to be able construct their own mazes and two
+  suggestions came up:
+
+  - Use a text file with the maze laid out on the page, with walls represented as 'x' characters (for example).
+
+  - Use a turtle (with some magic property) to draw a maze.
+
+  We did not talk about either option a great deal. Both options
+  seemed to allow student or teacher to provide a maze definition.
+  However, it was clear that, in either case, the facilities needed to
+  turn either form of input into an internal representation that a
+  turtle could detect were going to be given and not developed by the
+  class.
+
+* Maze Representation (internal) - how are the maze walls represented
+  inside the computer system?
+
+  The secondary question here is - and how does the turtle detect them?
+
+  The turtle module does not provide anything helpful here and some
+  extra code is going to be needed. This is not for the classroom
+  (maybe later?) and must be given.
+
+* Maze Representation (visual) - how are the maze walls drawn on the screen?
+
+  This is related to both the internal representation and the
+  definition problem. No solutions, only questions.
+
+* Turtle Senses - how does the turtle detect a maze wall?
+
+  The turtle must be given some kind of sense so it knows where it can
+  go and where it can't (because there is a wall in the way).
+
+  - Sight is useful and leads to thinking about how far ahead, and how much, the turtle can see.
+
+  - Touch is useful. A 'blind' turtle can feel its way around an
+    object and can work equally well in a confined space as in an open
+    one.
+
+  Neither of these senses is part of the turtle module and some extra
+  features must be given.
+
+Navigation
+----------
+
+Maze following algorithms exist that are more or less good at the
+general case. Abelson and DiSessa give a good discussion of these and
+bring out relevant geometry learning points. Identifying different
+ways of dealing with obstacles (where a maze is just a kind of
+obstacle) is what the students are aiming at.
+
+Teaching Progression
+====================
+
+* Recapitulation
+
+  Students already know about moving turtles around so the initial recap
+  step uses this knowledge to have the students draw a turtle path that
+  avoids a simple box of known size. Specifically, head in a
+  direction, go round the box and continue on the same line as though
+  the box wasn't there.
+
+  .. image:: images/recap_box.svg
+     :scale: 200
+
+  Since the size is known there is no need for any generalisation and
+  the recap is simply a reminder placed in the intended context of
+  object avoidance.
+
+* Use the turtle's sense
+
+  Introduce the sense (touch or site) that the turtle has and play
+  with simple avoidance and shape following.
+
+  Generalise the original recap scenario to take boxes of any size.
+
+* Provide an initial maze to get out of. Simple stuff like a box with
+  an indentation.
+
+  .. image:: images/test_box_indented.svg
+     :scale: 200
+
+* Play with more complex objects.
+
+* Test the algorithms generated so far with some edge cases.
+
+Increasing Interest
+===================
+
+Allow students to generate mazes for other students to solve.
+
+Look at the time it takes any of the current algorithms to solve a
+given maze.
+
+
+Other Discussions in the Group
+====================================
+
+We looked at an example of a robot game where two robots worked round
+a maze (under player control), using a weapon to destroy the other
+robot. The interesting part here was that the robots had sight and
+weapon at 90 degrees to each other so that using the weapon meant
+seeing the target and then turning through 90 to fire.
+
+We were introduced to `StarLogo
+<http://education.mit.edu/starlogo/>`_; essentially a multi-turtle
+simulation facility. The immediate relevance was the sense
+capabilities that the turtles have.
+
+Further Action
+===============
+
+A large part of the maze provision needs to be provided, as does a
+basic turtle sense. Watch this space...
+
+Reference
+==========
+
+Turtle Geometry: The Computer as a Medium for Exploring Mathematics.
+  Harold Abelson and Andrea DiSessa
