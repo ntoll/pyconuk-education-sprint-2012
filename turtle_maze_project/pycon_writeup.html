@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.9.1: http://docutils.sourceforge.net/" />
+<title>Using Maze Following as a Teaching Project</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7434 2012-05-11 21:06:27Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { /* line numbers */
+  color: grey;
+}
+
+.code {
+  background-color: #eeeeee
+}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="using-maze-following-as-a-teaching-project">
+<h1 class="title">Using Maze Following as a Teaching Project</h1>
+
+<p>PyConUK 2012 had a teaching sprint that brought together teachers and
+geeks for mutual enlightenment. As part of that sprint we split into
+groups and attempted to devise teaching plans using different
+computing ideas. This is the result from one such group.</p>
+<p>The goal of the project was to build on students' knowledge of turtle
+geometry (learnt, perhaps from Logo) and to use Python's turtle
+graphics to give a turtle the ability to navigate a maze. This means
+giving the turtle the ability to tell where the maze is, as well as
+working out some algorithm for navigation. Thinking about all the
+elements needed to demonstrate success lead to a number of assumptions
+that allow us to decide what the student has to do and what is already
+given. We also needed to consider how the project might be made more
+interesting.</p>
+<p>As it stands, we did not get as far as a detailed lesson plan. Nor did
+we consider teaching issues such as diversity. The conversation did,
+however, lead to ideas for ways of providing the technical support for
+the assumptions hinted at above.</p>
+<div class="section" id="the-elements-of-a-maze-navigation-system">
+<h1>The Elements of a Maze Navigation System</h1>
+<p>These are the things that need to be thought about when dealing with
+mazes. Some of these will be provided, and some will be developed by
+the students.</p>
+<div class="section" id="the-maze">
+<h2>The Maze</h2>
+<ul>
+<li><p class="first">Maze Definition - how does the user, student or teacher, define the
+shape that is to be the maze?</p>
+<p>At some levels this is a study in its own right. The geek side of
+the table mentioned automatic maze generation tools, but our overall
+level of knowledge of such things meant we could not sensibly
+evaluate such things for classroom use. We had thought that it might
+be good for students to be able construct their own mazes and two
+suggestions came up:</p>
+<ul class="simple">
+<li>Use a text file with the maze laid out on the page, with walls represented as 'x' characters (for example).</li>
+<li>Use a turtle (with some magic property) to draw a maze.</li>
+</ul>
+<p>We did not talk about either option a great deal. Both options
+seemed to allow student or teacher to provide a maze definition.
+However, it was clear that, in either case, the facilities needed to
+turn either form of input into an internal representation that a
+turtle could detect were going to be given and not developed by the
+class.</p>
+</li>
+<li><p class="first">Maze Representation (internal) - how are the maze walls represented
+inside the computer system?</p>
+<p>The secondary question here is - and how does the turtle detect them?</p>
+<p>The turtle module does not provide anything helpful here and some
+extra code is going to be needed. This is not for the classroom
+(maybe later?) and must be given.</p>
+</li>
+<li><p class="first">Maze Representation (visual) - how are the maze walls drawn on the screen?</p>
+<p>This is related to both the internal representation and the
+definition problem. No solutions, only questions.</p>
+</li>
+<li><p class="first">Turtle Senses - how does the turtle detect a maze wall?</p>
+<p>The turtle must be given some kind of sense so it knows where it can
+go and where it can't (because there is a wall in the way).</p>
+<ul class="simple">
+<li>Sight is useful and leads to thinking about how far ahead, and how much, the turtle can see.</li>
+<li>Touch is useful. A 'blind' turtle can feel its way around an
+object and can work equally well in a confined space as in an open
+one.</li>
+</ul>
+<p>Neither of these senses is part of the turtle module and some extra
+features must be given.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="navigation">
+<h2>Navigation</h2>
+<p>Maze following algorithms exist that are more or less good at the
+general case. Abelson and DiSessa give a good discussion of these and
+bring out relevant geometry learning points. Identifying different
+ways of dealing with obstacles (where a maze is just a kind of
+obstacle) is what the students are aiming at.</p>
+</div>
+</div>
+<div class="section" id="teaching-progression">
+<h1>Teaching Progression</h1>
+<ul>
+<li><p class="first">Recapitulation</p>
+<p>Students already know about moving turtles around so the initial recap
+step uses this knowledge to have the students draw a turtle path that
+avoids a simple box of known size. Specifically, head in a
+direction, go round the box and continue on the same line as though
+the box wasn't there.</p>
+<object data="images/recap_box.svg" type="image/svg+xml">
+images/recap_box.svg</object>
+<p>Since the size is known there is no need for any generalisation and
+the recap is simply a reminder placed in the intended context of
+object avoidance.</p>
+</li>
+<li><p class="first">Use the turtle's sense</p>
+<p>Introduce the sense (touch or site) that the turtle has and play
+with simple avoidance and shape following.</p>
+<p>Generalise the original recap scenario to take boxes of any size.</p>
+</li>
+<li><p class="first">Provide an initial maze to get out of. Simple stuff like a box with
+an indentation.</p>
+<object data="images/test_box_indented.svg" type="image/svg+xml">
+images/test_box_indented.svg</object>
+</li>
+<li><p class="first">Play with more complex objects.</p>
+</li>
+<li><p class="first">Test the algorithms generated so far with some edge cases.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="increasing-interest">
+<h1>Increasing Interest</h1>
+<p>Allow students to generate mazes for other students to solve.</p>
+<p>Look at the time it takes any of the current algorithms to solve a
+given maze.</p>
+</div>
+<div class="section" id="other-discussions-in-the-group">
+<h1>Other Discussions in the Group</h1>
+<p>We looked at an example of a robot game where two robots worked round
+a maze (under player control), using a weapon to destroy the other
+robot. The interesting part here was that the robots had sight and
+weapon at 90 degrees to each other so that using the weapon meant
+seeing the target and then turning through 90 to fire.</p>
+<p>We were introduced to <a class="reference external" href="http://education.mit.edu/starlogo/">StarLogo</a>; essentially a multi-turtle
+simulation facility. The immediate relevance was the sense
+capabilities that the turtles have.</p>
+</div>
+<div class="section" id="further-action">
+<h1>Further Action</h1>
+<p>A large part of the maze provision needs to be provided, as does a
+basic turtle sense. Watch this space...</p>
+</div>
+<div class="section" id="reference">
+<h1>Reference</h1>
+<dl class="docutils">
+<dt>Turtle Geometry: The Computer as a Medium for Exploring Mathematics.</dt>
+<dd>Harold Abelson and Andrea DiSessa</dd>
+</dl>
+</div>
+</div>
+</body>
+</html>
